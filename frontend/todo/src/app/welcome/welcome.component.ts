@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WelcomeDataService } from '../service/data/welcome-data.service';
+import { VirtualTimeScheduler } from 'rxjs';
+import { verifyHostBindings } from '@angular/compiler';
 
 @Component({
   selector: 'app-welcome',
@@ -11,6 +13,7 @@ export class WelcomeComponent implements OnInit {
   message = 'My Welcome Message'
   name = ''
   welcomeMessageFromService:String
+  errorMessage :string
   //ActivatedRoute
   constructor(private route:ActivatedRoute,
     private service:WelcomeDataService) { }
@@ -21,10 +24,21 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    console.log(this.service.excuteHelloWorldBeanService());
     this.service.excuteHelloWorldBeanService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+      response => this.handleSuccessfulResponse(response),
+      error =>this.handleErrorResponse(error)
      );
+  }
+
+  getWelcomeMessageWithParam() {
+    this.service.excuteHelloWorldBeanServiceWithPathVar(this.name).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error =>this.handleErrorResponse(error)
+     );
+  }
+
+  handleErrorResponse(error) {
+    this.errorMessage = error.error.message
   }
 
   handleSuccessfulResponse(response) {

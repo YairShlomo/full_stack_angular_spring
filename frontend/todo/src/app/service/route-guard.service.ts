@@ -6,13 +6,14 @@ import { HardcodedAuthenticationService } from './hardcoded-authentication.servi
 @Injectable({
   providedIn: 'root'
 })
+
 export class RouteGuardService implements CanActivate {
   constructor(private hardcodedAuthenticationService: HardcodedAuthenticationService,
     private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if (this.hardcodedAuthenticationService.isUserLoggedIn()) {
+    if (this.hardcodedAuthenticationService.isLoggedIn) {
       return true;
     } else {
       this.router.navigate(['login']);

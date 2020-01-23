@@ -9,3 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Yair\'s todo';
 }
+
+
+// const fn = () => true
+// var fn = function () {
+//   return true
+// } 

@@ -3,4 +3,14 @@
     {{name}} welcome to Yair's App .    You can manage your todos <a routerLink="/todos">here</a>
 </div>
 
+<div class="container">
+    Click to get a customized welcome message
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    <H2> Your Welcome Message</H2>
+    {{welcomeMessageFromService}}
+</div>
+
 

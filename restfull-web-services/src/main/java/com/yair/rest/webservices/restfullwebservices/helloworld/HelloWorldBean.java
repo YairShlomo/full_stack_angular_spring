@@ -1,4 +1,4 @@
-package com.yair.rest.webservices.restfullwebservices;
+package com.yair.rest.webservices.restfullwebservices.helloworld;
 
 public class HelloWorldBean  {
 	private String message;

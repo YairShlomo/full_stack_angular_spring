@@ -1,4 +1,4 @@
-package com.yair.rest.webservices.restfullwebservices.basic.auth;
+package com.yair.rest.basic.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

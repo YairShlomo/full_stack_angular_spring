@@ -19,6 +19,25 @@ export class BasicAuthenticationService {
     this.isUserLoggedIn();
   }
 
+  excuteJWTAuthenticationService(username,password) {
+    return this.http.post<any>(`${API_URL}/authenticate`,{
+      username,
+      password
+    }).pipe(
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATION_USER, username)
+          sessionStorage.setItem(TOKEN, `Bearer ${data.token}`)
+          this.isLoggedIn = true;
+          return data;
+        },
+        error => {
+          this.isLoggedIn = false;
+        }
+      )
+    );
+  }
+
   excuteAuthenticationService(username,password) {
     let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
     let headers = new HttpHeaders({

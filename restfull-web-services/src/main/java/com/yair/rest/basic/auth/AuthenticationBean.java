@@ -1,4 +1,4 @@
-package com.yair.rest.webservices.restfullwebservices.basic.auth;
+package com.yair.rest.basic.auth;
 
 public class AuthenticationBean  {
 	private String message;

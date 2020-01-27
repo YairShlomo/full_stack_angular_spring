@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TodoHardcodedService {
-	private static List<Todo> todos = new ArrayList();
-	private static int idCounter = 0;
+	private static List<Todo> todos = new ArrayList<Todo>();
+	private static long idCounter = 0;
 	static {
 		todos.add(new Todo(++idCounter,"Yair144","Take swim lessons",new Date(),false));
 		todos.add(new Todo(++idCounter,"Yair144","Become an angular expert",new Date(),false));

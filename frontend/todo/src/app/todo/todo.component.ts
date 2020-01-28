@@ -33,7 +33,7 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    if(this.id === -1) {
+    if(this.id == -1) {
       this.todoService.addTodo("Yair144",this.id,this.todo).subscribe(
         data => {
           this.router.navigate(["todos"])

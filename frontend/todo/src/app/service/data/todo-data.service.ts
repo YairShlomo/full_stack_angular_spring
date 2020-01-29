@@ -28,8 +28,7 @@ export class TodoDataService {
     return this.http.put(`${JPA_API_URL}/users/${username}}/todos/${id}`,todo)
   }
 
-  addTodo(username,id,todo) {
-    return this.http.post(`${JPA_API_URL}/users/${username}}/todos/${id}`,todo)
+  addTodo(username,todo) {
+    return this.http.post(`${JPA_API_URL}/users/${username}/todos`,todo)
   }
-
 }
